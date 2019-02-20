@@ -13,6 +13,9 @@ using System.Linq;
 using System.Collections.Generic;
 using Microsoft.CodeAnalysis.VisualBasic;
 using System.Composition;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
+using Microsoft.DotNetCore.CodeFormatting.RuleAttributes;
+using Microsoft.DotNetCore.CodeFormatting.Engine;
 
 namespace Microsoft.DotNetCore.CodeFormatting.Rules
 {
@@ -37,6 +40,8 @@ namespace Microsoft.DotNetCore.CodeFormatting.Rules
                 languageName == LanguageNames.VisualBasic;
         }
 
+
+
         public async Task<SyntaxNode> ProcessAsync(Document document, SyntaxNode syntaxNode, CancellationToken cancellationToken)
         {
             document = await Formatter.FormatAsync(document, cancellationToken: cancellationToken);
@@ -58,6 +63,9 @@ namespace Microsoft.DotNetCore.CodeFormatting.Rules
 
             return await document.GetSyntaxRootAsync(cancellationToken);
         }
+
+
+
 
         private static ParseOptions WithPreprocessorSymbols(ParseOptions parseOptions, List<string> symbols)
         {

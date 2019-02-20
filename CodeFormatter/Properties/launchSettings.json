@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CodeFormatter": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\Users\\vlad5\\Source\\Repos\\TestCodeFormat\\TestCodeFormat.rsp  /copyright+ /verbose"
+    }
+  }
+}

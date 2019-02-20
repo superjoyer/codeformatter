@@ -1,5 +1,7 @@
 ﻿using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
+using Microsoft.DotNetCore.CodeFormatting.RuleAttributes;
 using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
@@ -11,7 +13,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Microsoft.DotNetCore.CodeFormatting
+namespace Microsoft.DotNetCore.CodeFormatting.Engine
 {
     [Export(typeof(IFormattingEngine))]
     internal sealed class FormattingEngineImplementation : IFormattingEngine
@@ -135,7 +137,6 @@ namespace Microsoft.DotNetCore.CodeFormatting
                 var newSolution = await FormatCoreAsync(originalSolution, documentIds, cancellationToken);
                 newSolution.GetChanges(originalSolution).GetProjectChanges().ToList().ForEach(projectChanges =>
                 {
-                    //NOTE: As TryApplyChanges not working save document to disk from new solution
                     SaveUpdatedDocumentsToDisk(projectChanges, newSolution);
                 });
                 watch.Stop();

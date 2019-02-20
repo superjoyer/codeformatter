@@ -1,4 +1,7 @@
 ﻿using CodeFormatter;
+using Microsoft.DotNetCore.CodeFormatting.Engine;
+using Microsoft.DotNetCore.CodeFormatting.Enums;
+using Microsoft.DotNetCore.CodeFormatting.Parser;
 using Xunit;
 
 namespace Microsoft.DotNetCore.CodeFormatting.Tests

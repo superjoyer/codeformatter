@@ -1,9 +1,10 @@
 ﻿using Microsoft.CodeAnalysis;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
 using System.Collections.Immutable;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Microsoft.DotNetCore.CodeFormatting
+namespace Microsoft.DotNetCore.CodeFormatting.Interfaces
 {
     public interface IFormattingEngine
     {

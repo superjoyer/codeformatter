@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace Microsoft.DotNetCore.CodeFormatting
+namespace Microsoft.DotNetCore.CodeFormatting.Interfaces
 {
     internal interface IFormattingFilter
     {

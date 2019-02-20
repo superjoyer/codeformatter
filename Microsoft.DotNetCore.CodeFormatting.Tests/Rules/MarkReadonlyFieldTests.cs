@@ -7,7 +7,7 @@ using System.Composition;
 using System.Linq;
 
 using Microsoft.CodeAnalysis;
-
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
 using Xunit;
 
 namespace Microsoft.DotNetCore.CodeFormatting.Tests
@@ -17,7 +17,7 @@ namespace Microsoft.DotNetCore.CodeFormatting.Tests
     /// </summary>
     public class MarkReadonlyFieldTests : GlobalSemanticRuleTestBase
     {
-        internal override IGlobalSemanticFormattingRule Rule
+        public override IGlobalSemanticFormattingRule Rule
         {
             get { return new Rules.MarkReadonlyFieldsRule(); }
         }

@@ -8,6 +8,8 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.Simplification;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
+using Microsoft.DotNetCore.CodeFormatting.RuleAttributes;
 
 namespace Microsoft.DotNetCore.CodeFormatting.Rules
 {

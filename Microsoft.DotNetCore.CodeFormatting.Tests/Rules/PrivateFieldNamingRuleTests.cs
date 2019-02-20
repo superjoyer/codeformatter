@@ -3,13 +3,14 @@
 // See the LICENSE file in the project root for more information.
 
 using Microsoft.CodeAnalysis;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
 using Xunit;
 
 namespace Microsoft.DotNetCore.CodeFormatting.Tests
 {
     public class PrivateFieldNamingRuleTests : GlobalSemanticRuleTestBase
     {
-        internal override IGlobalSemanticFormattingRule Rule
+        public override IGlobalSemanticFormattingRule Rule
         {
             get { return new Rules.PrivateFieldNamingRule(); }
         }

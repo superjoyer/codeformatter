@@ -2,13 +2,14 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
 using Xunit;
 
 namespace Microsoft.DotNetCore.CodeFormatting.Tests
 {
     public class NonAsciiCharactersAreEscapedInLiteralsTests : SyntaxRuleTestBase
     {
-        internal override ISyntaxFormattingRule Rule
+        public override ISyntaxFormattingRule Rule
         {
             get { return new Rules.NonAsciiCharactersAreEscapedInLiterals(); }
         }

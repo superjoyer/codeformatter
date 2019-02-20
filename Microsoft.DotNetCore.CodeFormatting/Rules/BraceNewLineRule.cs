@@ -4,6 +4,8 @@
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
+using Microsoft.DotNetCore.CodeFormatting.RuleAttributes;
 using System.Collections.Generic;
 using System.Linq;
 

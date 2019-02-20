@@ -11,6 +11,8 @@ using System.Reflection;
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
+using Microsoft.DotNetCore.CodeFormatting.RuleAttributes;
 
 namespace Microsoft.DotNetCore.CodeFormatting.Rules
 {

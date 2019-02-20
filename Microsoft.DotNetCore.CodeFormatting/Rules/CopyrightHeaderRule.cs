@@ -8,6 +8,9 @@ using System.Linq;
 using System.Collections.Immutable;
 using Microsoft.CodeAnalysis;
 using System.Composition;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
+using Microsoft.DotNetCore.CodeFormatting.RuleAttributes;
+using Microsoft.DotNetCore.CodeFormatting.Engine;
 
 namespace Microsoft.DotNetCore.CodeFormatting.Rules
 {

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Formatting;
 using Microsoft.CodeAnalysis.Text;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
 using Xunit;
 
 namespace Microsoft.DotNetCore.CodeFormatting.Tests
@@ -111,7 +112,7 @@ namespace Microsoft.DotNetCore.CodeFormatting.Tests
 
     public abstract class SyntaxRuleTestBase : CodeFormattingTestBase
     {
-        internal abstract ISyntaxFormattingRule Rule
+        public abstract ISyntaxFormattingRule Rule
         {
             get;
         }
@@ -126,7 +127,7 @@ namespace Microsoft.DotNetCore.CodeFormatting.Tests
 
     public abstract class LocalSemanticRuleTestBase : CodeFormattingTestBase
     {
-        internal abstract ILocalSemanticFormattingRule Rule
+        public abstract ILocalSemanticFormattingRule Rule
         {
             get;
         }
@@ -141,7 +142,7 @@ namespace Microsoft.DotNetCore.CodeFormatting.Tests
 
     public abstract class GlobalSemanticRuleTestBase : CodeFormattingTestBase
     {
-        internal abstract IGlobalSemanticFormattingRule Rule
+        public abstract IGlobalSemanticFormattingRule Rule
         {
             get;
         }

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.DotNetCore.CodeFormatting.Interfaces;
+using Microsoft.DotNetCore.CodeFormatting.Logger;
+using System.Collections.Generic;
 using System.Composition.Hosting;
 using System.Reflection;
 
-namespace Microsoft.DotNetCore.CodeFormatting
+namespace Microsoft.DotNetCore.CodeFormatting.Engine
 {
     public static class FormattingEngine
     {

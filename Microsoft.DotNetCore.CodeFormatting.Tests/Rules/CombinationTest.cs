@@ -9,6 +9,8 @@ using Microsoft.CodeAnalysis;
 using Xunit;
 using System.Collections.Immutable;
 using Microsoft.DotNetCore.CodeFormatting.Rules;
+using Microsoft.DotNetCore.CodeFormatting.Engine;
+using Microsoft.DotNetCore.CodeFormatting.Logger;
 
 namespace Microsoft.DotNetCore.CodeFormatting.Tests
 {

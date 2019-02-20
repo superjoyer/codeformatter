@@ -1,4 +1,5 @@
 ﻿using Microsoft.CodeAnalysis;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
 using System;
 using System.Composition;
 

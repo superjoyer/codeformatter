@@ -4,6 +4,7 @@
 
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
 using System.Threading;
 using Xunit;
 
@@ -11,7 +12,7 @@ namespace Microsoft.DotNetCore.CodeFormatting.Tests
 {
     public class NewLineAboveRuleTests : SyntaxRuleTestBase
     {
-        internal override ISyntaxFormattingRule Rule
+        public override ISyntaxFormattingRule Rule
         {
             get { return new Rules.NewLineAboveRule(); }
         }

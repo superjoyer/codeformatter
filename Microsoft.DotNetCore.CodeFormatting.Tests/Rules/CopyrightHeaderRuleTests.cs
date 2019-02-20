@@ -3,6 +3,7 @@
 // See the LICENSE file in the project root for more information.
 
 using Microsoft.CodeAnalysis;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
 using System.Collections.Immutable;
 using Xunit;
 
@@ -12,7 +13,7 @@ namespace Microsoft.DotNetCore.CodeFormatting.Tests
     {
         private readonly Options _options = new Options();
 
-        internal override ISyntaxFormattingRule Rule
+        public override ISyntaxFormattingRule Rule
         {
             get { return new Rules.CopyrightHeaderRule(_options); }
         }

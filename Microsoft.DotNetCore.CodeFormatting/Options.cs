@@ -1,4 +1,7 @@
-﻿using System.Collections.Immutable;
+﻿using Microsoft.DotNetCore.CodeFormatting.Engine;
+using Microsoft.DotNetCore.CodeFormatting.Interfaces;
+using Microsoft.DotNetCore.CodeFormatting.Logger;
+using System.Collections.Immutable;
 using System.Composition;
 
 namespace Microsoft.DotNetCore.CodeFormatting

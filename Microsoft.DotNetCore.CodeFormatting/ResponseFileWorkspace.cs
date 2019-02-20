@@ -3,6 +3,7 @@ using Microsoft.CodeAnalysis.Text;
 using System;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Microsoft.DotNetCore.CodeFormatting
 {
@@ -11,7 +12,7 @@ namespace Microsoft.DotNetCore.CodeFormatting
         private static Encoding s_utf8WithoutBom = new UTF8Encoding(false);
 
         private ResponseFileWorkspace()
-                  : base(Microsoft.CodeAnalysis.Host.Mef.MefHostServices.DefaultHost, "Custom")
+                  : base(CodeAnalysis.Host.Mef.MefHostServices.DefaultHost, "Custom")
         {
         }
 
@@ -20,16 +21,31 @@ namespace Microsoft.DotNetCore.CodeFormatting
             return new ResponseFileWorkspace();
         }
 
-        public Project OpenCommandLineProject(string responseFile, string language, ProjectInfo projectInfo)
+
+
+        public Project OpenCommandLineProject(string responseFile, string language)
         {
+            var rspContents = File.ReadAllText(responseFile);
+
+            var parsedDocs = Regex.Replace(rspContents, @"/[a-z|A_Z]{1}:", "")
+                         .Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
+
+            var projectCreator = new ProjectCreator();
+            var projectInfo = projectCreator.Create(responseFile, language, parsedDocs);
+
             this.OnProjectAdded(projectInfo);
             return this.CurrentSolution.GetProject(projectInfo.Id);
         }
+
+
+
 
         public override bool CanApplyChange(ApplyChangesKind feature)
         {
             return feature == ApplyChangesKind.ChangeDocument;
         }
+
+
 
         protected override void ApplyDocumentTextChanged(DocumentId documentId, SourceText text)
         {

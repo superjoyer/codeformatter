@@ -1,6 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Text;
 
-namespace Microsoft.DotNetCore.CodeFormatting
+namespace Microsoft.DotNetCore.CodeFormatting.Interfaces
 {
     public interface IRuleMetadata
     {
