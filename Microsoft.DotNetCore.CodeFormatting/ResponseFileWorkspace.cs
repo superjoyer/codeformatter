@@ -4,6 +4,9 @@ using System;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using Microsoft.DotNetCore.CodeFormatting.Parser;
 
 namespace Microsoft.DotNetCore.CodeFormatting
 {
@@ -25,12 +28,11 @@ namespace Microsoft.DotNetCore.CodeFormatting
 
         public Project OpenCommandLineProject(string responseFile, string language)
         {
-            var rspContents = File.ReadAllText(responseFile);
+            string rspContents = File.ReadAllText(responseFile);
+            RspFileParser rspParser = new RspFileParser();
+            ProjectCreator projectCreator = new ProjectCreator();
 
-            var parsedDocs = Regex.Replace(rspContents, @"/[a-z|A_Z]{1}:", "")
-                         .Split("\r\n", StringSplitOptions.RemoveEmptyEntries);
-
-            var projectCreator = new ProjectCreator();
+            var parsedDocs = rspParser.Parse(rspContents);
             var projectInfo = projectCreator.Create(responseFile, language, parsedDocs);
 
             this.OnProjectAdded(projectInfo);

@@ -1,6 +1,5 @@
 ﻿using System;
 using Microsoft.DotNetCore.CodeFormatting.Parser;
-using Microsoft.DotNetCore.CodeFormatting.Engine;
 using Microsoft.DotNetCore.CodeFormatting.Enums;
 using Microsoft.DotNetCore.CodeFormatting;
 
@@ -23,8 +22,6 @@ namespace CodeFormatter
 
             return exitCode;
         }
-
-
 
         private static int ExecuteOperationByInputOptions(CommandLineOptions options)
         {

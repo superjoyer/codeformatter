@@ -11,7 +11,7 @@ namespace Microsoft.DotNetCore.CodeFormatting
     {
         private readonly char[] s_folderSplitters = new char[] { Path.DirectorySeparatorChar };
 
-        public ProjectInfo Create(string projectName, string language, string[] documents)
+        public ProjectInfo Create(string projectName, string language, List<string> documents)
         {
             var projectId = ProjectId.CreateNewId();
             var baseDirectory = Path.GetDirectoryName(Path.GetFullPath(projectName));
@@ -34,7 +34,6 @@ namespace Microsoft.DotNetCore.CodeFormatting
                 docsList.Add(document);
             }
 
-
             var projectInfo = ProjectInfo.Create(
                 projectId,
                 VersionStamp.Create(),
@@ -43,16 +42,9 @@ namespace Microsoft.DotNetCore.CodeFormatting
                 documents: docsList,
                 language: language,
                 filePath: projectName);
-
-
-
             return projectInfo;
 
         }
-
-
-
-
 
         private IList<string> GetFolders(string path)
         {
@@ -66,7 +58,5 @@ namespace Microsoft.DotNetCore.CodeFormatting
                 return directory.Split(s_folderSplitters, StringSplitOptions.RemoveEmptyEntries).ToImmutableArray();
             }
         }
-
-
     }
 }
